@@ -6,7 +6,7 @@ function Home() {
 
       {/* این بخش فقط موقته، برای تست افکت شیشه‌ای هدر */}
       <div className="h-[1500px] bg-gradient-to-b from-red-200 via-yellow-200 to-blue-200">
-        <p className="p-8 text-black">این یک محتوای تستیه، اسکرول کن تا افکت شیشه‌ای هدر رو ببینی</p>
+        <p className="p-8 text-black">تست شیشیه اتی </p>
       </div>
     </div>
   )
