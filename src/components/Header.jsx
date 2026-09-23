@@ -1,15 +1,21 @@
 import { Link } from 'react-router-dom'
 
-export default function Header() {
+function Header() {
   return (
-    <div>
-      <p className="text-5xl text-indigo-900 font-bold">سلام</p>
-      <p className="text-2xl">سلام، این یک متن آزمایشی است</p>
-      <nav>
+    <header className="flex items-center justify-between bg-blue-950 text-white px-8 py-4">
+      {/* سکشن لوگو */}
+      <Link to="/" className="text-xl font-bold">
+        لوگو
+      </Link>
+
+      {/* سکشن منو */}
+      <nav className="flex gap-6">
         <Link to="/">صفحه اصلی</Link>
-        {' | '}
-        <Link to="/about">درباره ما</Link>
+        <Link to="/contact">تماس با ما</Link>
+        <Link to="/articles">مقالات</Link>
       </nav>
-    </div>
+    </header>
   )
 }
+
+export default Header
