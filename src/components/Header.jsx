@@ -1,9 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { House, Phone, Newspaper, Building2, Menu, X } from "lucide-react";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    function handleEscape(event) {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 10);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const linkClass = ({ isActive }) =>
     `group relative inline-flex items-center gap-2 whitespace-nowrap
@@ -29,7 +59,12 @@ function Header() {
     }`;
 
   return (
-    <header className="sticky top-0 z-50 bg-indigo-950/80 backdrop-blur-md text-white shadow-lg">
+    <header
+      ref={menuRef}
+      className={`relative sticky top-0 z-50 backdrop-blur-md text-white transition-shadow duration-300 ${
+        isScrolled ? "bg-indigo-950/90 shadow-xl" : "bg-indigo-950/80 shadow-lg"
+      }`}
+    >
       <div className="flex items-center justify-between px-8 py-4">
         {/* سکشن لوگو */}
         <NavLink
@@ -44,7 +79,10 @@ function Header() {
         </NavLink>
 
         {/* سکشن منو - فقط دسکتاپ */}
-        <nav className="hidden md:flex items-center gap-1 rounded-full bg-white/5 px-3 py-2 backdrop-blur-sm">
+        <nav
+          aria-label="منوی اصلی"
+          className="hidden md:flex items-center gap-1 rounded-full bg-white/5 px-3 py-2 backdrop-blur-sm"
+        >
           <NavLink to="/" end className={linkClass}>
             <House
               size={18}
@@ -77,7 +115,8 @@ function Header() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
-          aria-label="باز و بسته کردن منو"
+          aria-label={isMenuOpen ? "بستن منو" : "باز کردن منو"}
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
             <X size={26} strokeWidth={2} />
@@ -89,11 +128,12 @@ function Header() {
 
       {/* منوی بازشو - فقط موبایل */}
       <nav
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+        aria-label="منوی موبایل"
+        className={`md:hidden absolute top-full right-4 left-4 mt-2 bg-indigo-950/95 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden transition-all duration-300 ease-out ${
           isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-1 px-4 pb-4">
+        <div className="flex flex-col gap-1 px-4 py-4">
           <NavLink
             to="/"
             end
