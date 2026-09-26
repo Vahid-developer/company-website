@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -19,7 +19,7 @@ function Hero() {
           <Sparkles size={16} strokeWidth={2} />
           <span>همراه مطمئن کسب‌وکار شما</span>
         </motion.div>
-    
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,10 +42,12 @@ function Hero() {
           به سطح بعدی برسانید.
         </motion.p>
 
+        {/* دکمه‌های اصلی و ثانویه */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
           <Link
             to="/contact"
@@ -58,8 +60,51 @@ function Hero() {
               className="transition-transform duration-300 group-hover:-translate-x-1"
             />
           </Link>
+
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium px-6 py-3 rounded-full border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            <span>مشاهده خدمات</span>
+          </Link>
+        </motion.div>
+
+        {/* آمار اعتمادسازی */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          className="flex items-center gap-8 mt-4 text-indigo-200"
+        >
+          <div className="text-center">
+            <p className="text-2xl font-extrabold text-white">+۵۰۰</p>
+            <p className="text-xs">مشتری راضی</p>
+          </div>
+          <div className="w-px h-8 bg-white/20" />
+          <div className="text-center">
+            <p className="text-2xl font-extrabold text-white">۱۰+</p>
+            <p className="text-xs">سال تجربه</p>
+          </div>
+          <div className="w-px h-8 bg-white/20" />
+          <div className="text-center">
+            <p className="text-2xl font-extrabold text-white">۲۴/۷</p>
+            <p className="text-xs">پشتیبانی</p>
+          </div>
         </motion.div>
       </div>
+
+      {/* شاخص اسکرول */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{
+          opacity: { duration: 0.6, delay: 0.9 },
+          y: { duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.9 },
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-indigo-300"
+      >
+        <ChevronDown size={28} strokeWidth={2} />
+      </motion.div>
     </section>
   );
 }
