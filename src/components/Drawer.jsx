@@ -1,52 +1,115 @@
+import { createPortal } from "react-dom";
 import { useEffect } from "react";
 import { X } from "lucide-react";
 
 function Drawer({ isOpen, onClose, title, children }) {
   useEffect(() => {
     function handleEscape(event) {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        onClose();
+      }
     }
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [onClose]);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
     return () => {
+      document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
-  return (
+  return createPortal(
     <>
-      {/* پس‌زمینه تار */}
+      {/* Scrim + Blur کل سایت */}
       <div
         onClick={onClose}
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`
+          fixed inset-0 z-[9998]
+          bg-black/35
+          backdrop-blur-md
+          transition-opacity duration-300
+          ${
+            isOpen
+              ? "pointer-events-auto opacity-100"
+              : "pointer-events-none opacity-0"
+          }
+        `}
       />
 
-      {/* پنل کشویی */}
-      <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 max-w-[85%] bg-indigo-950 text-white shadow-2xl transition-transform duration-300 ease-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+      {/* Drawer */}
+      <aside
+        aria-label={title}
+        className={`
+          fixed top-0 right-0 z-[9999]
+          h-dvh
+          w-[280px]
+          max-w-[85vw]
+
+          bg-slate-950
+          text-white
+
+          shadow-2xl
+
+          transition-transform
+          duration-300
+          ease-out
+
+          ${isOpen ? "translate-x-0" : "translate-x-full"}
+        `}
       >
-        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <h2 className="text-lg font-bold">{title}</h2>
+        {/* Drawer Header */}
+        <div
+          className="
+            flex h-16
+            items-center justify-between
+            border-b border-white/10
+            px-4
+          "
+        >
+          <h2 className="text-lg font-bold text-white">{title}</h2>
+
           <button
+            type="button"
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
             aria-label="بستن منو"
+            className="
+              flex h-10 w-10
+              items-center justify-center
+              rounded-full
+
+              text-white/70
+
+              transition-colors
+              duration-200
+
+              hover:bg-white/10
+              hover:text-white
+
+              focus:outline-none
+              focus:ring-2
+              focus:ring-indigo-400
+            "
           >
             <X size={22} strokeWidth={2} />
           </button>
         </div>
 
-        <div className="p-4">{children}</div>
-      </div>
-    </>
+        {/* Navigation */}
+        <div
+          className="
+         h-[calc(100dvh-4rem)]
+         px-4
+         py-4
+  "
+        >
+          {children}
+        </div>
+      </aside>
+    </>,
+    document.body,
   );
 }
 
