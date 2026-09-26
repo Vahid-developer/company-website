@@ -61,12 +61,14 @@ function Hero() {
             />
           </Link>
 
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium px-6 py-3 rounded-full border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            <span>مشاهده خدمات</span>
-          </Link>
+        <button
+         onClick={() =>
+           document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
+             }
+             className="cursor-pointer inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium px-6 py-3 rounded-full border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+  <span>مشاهده خدمات</span>
+</button>
         </motion.div>
 
         {/* آمار اعتمادسازی */}
