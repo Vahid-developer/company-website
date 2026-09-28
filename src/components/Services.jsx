@@ -37,34 +37,38 @@ function Services() {
       id="services"
       dir="rtl"
       className="
-    relative
-    z-20
-    -mt-20
-    overflow-hidden
-    rounded-t-[56px]
-    bg-slate-50
-    px-6
-    pb-28
-    pt-24
-    shadow-[0_-20px_60px_rgba(15,23,42,0.12)]
-    md:-mt-28
-    md:rounded-t-[72px]
-    md:px-8
-  "
+        relative
+        z-20
+        -mt-16
+        overflow-hidden
+        rounded-t-[48px]
+        bg-slate-50
+        px-5
+        pb-28
+        pt-20
+        shadow-[0_-16px_50px_rgba(15,23,42,0.10)]
+        sm:px-6
+        md:-mt-24
+        md:rounded-t-[64px]
+        md:px-8
+        md:pt-24
+        lg:px-10
+      "
     >
+      {/* Decorative top accent */}
       <div
         aria-hidden="true"
         className="
-    pointer-events-none
-    absolute
-    left-1/2
-    top-0
-    h-1
-    w-24
-    -translate-x-1/2
-    rounded-full
-    bg-blue-200
-  "
+          pointer-events-none
+          absolute
+          left-1/2
+          top-0
+          h-1
+          w-20
+          -translate-x-1/2
+          rounded-full
+          bg-blue-200
+        "
       />
 
       {/* Decorative shape - top left */}
@@ -78,7 +82,7 @@ function Services() {
           h-72
           w-72
           rounded-full
-          bg-blue-100/70
+          bg-blue-100/60
         "
       />
 
@@ -93,18 +97,19 @@ function Services() {
           h-80
           w-80
           rounded-full
-          bg-blue-100/70
+          bg-blue-100/60
         "
       />
 
-      <div className="relative z-10 mx-auto max-w-8xl">
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
         {/* Section heading */}
         <div
           className="
             mx-auto
-            mb-16
+            mb-14
             max-w-3xl
             text-center
+            md:mb-16
           "
         >
           <div
@@ -139,9 +144,10 @@ function Services() {
             className="
               text-3xl
               font-extrabold
+              leading-tight
               tracking-tight
               text-slate-900
-              md:text-4xl
+              sm:text-4xl
             "
           >
             راهکارهایی برای رشد کسب‌وکار شما
@@ -155,7 +161,7 @@ function Services() {
               text-sm
               leading-7
               text-slate-500
-              md:text-base
+              sm:text-base
             "
           >
             راهکارهای حرفه‌ای و تخصصی برای رشد و توسعه کسب‌وکار شما
@@ -170,6 +176,7 @@ function Services() {
             gap-6
             sm:grid-cols-2
             lg:grid-cols-4
+            lg:gap-7
           "
         >
           {services.map((service, index) => (

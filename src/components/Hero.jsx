@@ -3,6 +3,17 @@ import { ArrowLeft, Sparkles, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Hero() {
+  const handleScrollToServices = () => {
+    const servicesSection = document.getElementById("services");
+
+    if (servicesSection) {
+      servicesSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section
       className="
@@ -231,16 +242,10 @@ function Hero() {
           {/* مشاهده خدمات */}
           <button
             type="button"
-            onClick={() =>
-              document
-                .getElementById("services")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                })
-            }
+            onClick={handleScrollToServices}
             className="
-              cursor-pointer
               inline-flex
+              cursor-pointer
               items-center
               gap-2
               rounded-full
