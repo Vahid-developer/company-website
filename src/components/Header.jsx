@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { House, Phone, Newspaper, Building2, Menu } from "lucide-react";
+import { Building2, Menu } from "lucide-react";
 import useDrawer from "../hooks/useDrawer";
 import Drawer from "./Drawer";
+import NavItem from "./NavItem";
 
 function Header() {
   const { isOpen, open, close } = useDrawer();
@@ -15,32 +16,6 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const linkClass = ({ isActive }) =>
-    `group relative inline-flex items-center gap-2 whitespace-nowrap
-      px-4 py-2 rounded-full
-      text-sm font-medium
-      transition-all duration-300 ease-out
-      hover:scale-105 hover:bg-white/10
-      active:scale-95
-      ${
-        isActive
-          ? "font-bold text-white bg-indigo-500"
-          : "text-indigo-50 hover:text-indigo-200"
-      }`;
-
-  const mobileLinkClass = ({ isActive }) =>
-    `flex items-center gap-3
-      min-h-12
-      px-4
-      rounded-xl
-      text-base font-medium
-      transition-colors duration-200
-      ${
-        isActive
-          ? "bg-indigo-500 text-white font-bold"
-          : "text-white/80 hover:bg-white/10 hover:text-white"
-      }`;
 
   return (
     <header
@@ -62,37 +37,7 @@ function Header() {
         </NavLink>
 
         {/* سکشن منو - فقط دسکتاپ */}
-        <nav
-          aria-label="منوی اصلی"
-          className="hidden md:flex items-center gap-2"
-        >
-          <NavLink to="/" end className={linkClass}>
-            <House
-              size={18}
-              strokeWidth={2}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5"
-            />
-            <span>صفحه اصلی</span>
-          </NavLink>
-
-          <NavLink to="/contact" className={linkClass}>
-            <Phone
-              size={18}
-              strokeWidth={2}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5"
-            />
-            <span>تماس با ما</span>
-          </NavLink>
-
-          <NavLink to="/articles" className={linkClass}>
-            <Newspaper
-              size={18}
-              strokeWidth={2}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5"
-            />
-            <span>مقالات</span>
-          </NavLink>
-        </nav>
+        <NavItem variant="desktop" />
 
         {/* دکمه باز کردن Drawer - فقط موبایل */}
         <button
@@ -106,22 +51,7 @@ function Header() {
 
       {/* Drawer موبایل */}
       <Drawer isOpen={isOpen} onClose={close} title="نام شرکت">
-        <nav aria-label="منوی موبایل" className="flex flex-col gap-2">
-          <NavLink to="/" end className={mobileLinkClass} onClick={close}>
-            <House size={20} strokeWidth={2} />
-            <span>صفحه اصلی</span>
-          </NavLink>
-
-          <NavLink to="/contact" className={mobileLinkClass} onClick={close}>
-            <Phone size={20} strokeWidth={2} />
-            <span>تماس با ما</span>
-          </NavLink>
-
-          <NavLink to="/articles" className={mobileLinkClass} onClick={close}>
-            <Newspaper size={20} strokeWidth={2} />
-            <span>مقالات</span>
-          </NavLink>
-        </nav>
+        <NavItem variant="mobile" onItemClick={close} />
       </Drawer>
     </header>
   );
