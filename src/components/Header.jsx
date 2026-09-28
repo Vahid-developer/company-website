@@ -28,18 +28,19 @@ function Header() {
           ? "font-bold text-white bg-indigo-500"
           : "text-indigo-50 hover:text-indigo-200"
       }`;
-const mobileLinkClass = ({ isActive }) =>
-  `flex items-center gap-3
-  min-h-12
-  px-4
-  rounded-xl
-  text-base font-medium
-  transition-colors duration-200
-  ${
-    isActive
-      ? "bg-indigo-500 text-white font-bold"
-      : "text-white/80 hover:bg-white/10 hover:text-white"
-  }`;
+
+  const mobileLinkClass = ({ isActive }) =>
+    `flex items-center gap-3
+      min-h-12
+      px-4
+      rounded-xl
+      text-base font-medium
+      transition-colors duration-200
+      ${
+        isActive
+          ? "bg-indigo-500 text-white font-bold"
+          : "text-white/80 hover:bg-white/10 hover:text-white"
+      }`;
 
   return (
     <header
@@ -47,7 +48,7 @@ const mobileLinkClass = ({ isActive }) =>
         isScrolled ? "bg-indigo-950/90 shadow-xl" : "bg-indigo-950/80 shadow-lg"
       }`}
     >
-      <div className="flex items-center justify-start gap-8 px-8 py-4">
+      <div className="flex items-center justify-between gap-8 px-8 py-4 md:justify-start">
         {/* سکشن لوگو */}
         <NavLink
           to="/"
@@ -92,9 +93,6 @@ const mobileLinkClass = ({ isActive }) =>
             <span>مقالات</span>
           </NavLink>
         </nav>
-
-        {/* فاصله‌انداز برای هل دادن دکمه همبرگر به لبه مقابل */}
-        <div className="flex-1 md:hidden" />
 
         {/* دکمه باز کردن Drawer - فقط موبایل */}
         <button
