@@ -1,9 +1,4 @@
-import {
-  House,
-  Phone,
-  Newspaper,
-  Search,
-} from "lucide-react";
+import { House, Phone, Newspaper, Search } from "lucide-react";
 
 import ServiceCard from "./ServiceCard";
 
@@ -12,29 +7,25 @@ import webDesignImage from "../assets/web-design.jpg";
 const services = [
   {
     title: "طراحی سایت",
-    description:
-      "طراحی وب‌سایت‌های مدرن و حرفه‌ای برای کسب‌وکار شما",
+    description: "طراحی وب‌سایت‌های مدرن و حرفه‌ای برای کسب‌وکار شما",
     icon: House,
     image: webDesignImage,
   },
   {
     title: "طراحی اپلیکیشن",
-    description:
-      "ساخت اپلیکیشن‌های کاربردی و مدرن برای کاربران شما",
+    description: "ساخت اپلیکیشن‌های کاربردی و مدرن برای کاربران شما",
     icon: Phone,
     image: webDesignImage,
   },
   {
     title: "تولید محتوا",
-    description:
-      "تولید محتوای حرفه‌ای برای رشد و توسعه برند شما",
+    description: "تولید محتوای حرفه‌ای برای رشد و توسعه برند شما",
     icon: Newspaper,
     image: webDesignImage,
   },
   {
     title: "سئو و بهینه‌سازی",
-    description:
-      "بهینه‌سازی سایت برای دیده‌شدن بهتر در موتورهای جستجو",
+    description: "بهینه‌سازی سایت برای دیده‌شدن بهتر در موتورهای جستجو",
     icon: Search,
     image: webDesignImage,
   },
@@ -42,11 +33,10 @@ const services = [
 
 function Services() {
   return (
-
-<section
-  id="services"
-  dir="rtl"
-  className="
+    <section
+      id="services"
+      dir="rtl"
+      className="
     relative
     z-20
     -mt-20
@@ -61,10 +51,10 @@ function Services() {
     md:rounded-t-[72px]
     md:px-8
   "
->
-  <div
-  aria-hidden="true"
-  className="
+    >
+      <div
+        aria-hidden="true"
+        className="
     pointer-events-none
     absolute
     left-1/2
@@ -75,7 +65,7 @@ function Services() {
     rounded-full
     bg-blue-200
   "
-/>
+      />
 
       {/* Decorative shape - top left */}
       <div
@@ -108,7 +98,6 @@ function Services() {
       />
 
       <div className="relative z-10 mx-auto max-w-8xl">
-
         {/* Section heading */}
         <div
           className="
@@ -183,13 +172,14 @@ function Services() {
             lg:grid-cols-4
           "
         >
-          {services.map((service) => (
+          {services.map((service, index) => (
             <ServiceCard
               key={service.title}
               title={service.title}
               description={service.description}
               icon={service.icon}
               image={service.image}
+              variant={index % 2 === 0 ? "light" : "blue"}
             />
           ))}
         </div>
