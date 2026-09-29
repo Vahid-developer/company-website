@@ -11,6 +11,7 @@ function PricingCard({
   return (
     <div
       className={`
+        group
         relative
         flex
         h-full
@@ -24,25 +25,62 @@ function PricingCard({
         duration-300
         sm:px-6
         sm:py-8
+
         ${
           highlighted
             ? `
-              border-blue-500
-              bg-blue-50
+              border-indigo-400/70
+              bg-gradient-to-br
+              from-indigo-50
+              via-white
+              to-purple-50
               shadow-xl
+              shadow-indigo-950/10
               md:-translate-y-3
+
+              dark:border-indigo-400/30
+              dark:from-indigo-950/80
+              dark:via-slate-900
+              dark:to-purple-950/70
+              dark:shadow-black/30
             `
             : `
               border-slate-200
-              bg-white
+              bg-white/80
               shadow-sm
               hover:-translate-y-1
+              hover:border-indigo-200
               hover:shadow-lg
+
+              dark:border-white/10
+              dark:bg-slate-900/80
+              dark:hover:border-indigo-400/30
+              dark:hover:shadow-black/30
             `
         }
       `}
     >
+      {/* Highlight glow */}
+
+      {highlighted && (
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            inset-x-8
+            -top-6
+            h-20
+            rounded-full
+            bg-indigo-400/20
+            blur-2xl
+            dark:bg-purple-500/15
+          "
+        />
+      )}
+
       {/* Special badge */}
+
       {highlighted && (
         <span
           className="
@@ -55,13 +93,16 @@ function PricingCard({
             gap-1
             whitespace-nowrap
             rounded-full
-            bg-blue-600
+            bg-gradient-to-l
+            from-indigo-600
+            to-purple-600
             px-4
             py-1.5
             text-xs
             font-bold
             text-white
-            shadow-md
+            shadow-lg
+            shadow-indigo-950/20
           "
         >
           <Sparkles
@@ -74,11 +115,17 @@ function PricingCard({
       )}
 
       {/* Plan name */}
+
       <h3
         className="
+          relative
+          z-10
           text-lg
           font-bold
           text-slate-900
+          transition-colors
+          duration-500
+          dark:text-white
           sm:text-xl
         "
       >
@@ -86,8 +133,11 @@ function PricingCard({
       </h3>
 
       {/* Price */}
+
       <div
         className="
+          relative
+          z-10
           mt-4
           flex
           items-baseline
@@ -97,25 +147,43 @@ function PricingCard({
         "
       >
         <span
-          className="
+          className={`
             text-3xl
             font-extrabold
             tracking-tight
-            text-slate-900
+            transition-colors
+            duration-500
             sm:text-4xl
-          "
+
+            ${
+              highlighted
+                ? "text-indigo-700 dark:text-indigo-300"
+                : "text-slate-900 dark:text-white"
+            }
+          `}
         >
           {price}
         </span>
 
-        <span className="text-sm text-slate-500">
+        <span
+          className="
+            text-sm
+            text-slate-500
+            transition-colors
+            duration-500
+            dark:text-slate-400
+          "
+        >
           تومان / {period}
         </span>
       </div>
 
       {/* Features */}
+
       <ul
         className="
+          relative
+          z-10
           mt-7
           flex
           flex-1
@@ -137,7 +205,10 @@ function PricingCard({
               strokeWidth={2.5}
               className="
                 shrink-0
-                text-blue-600
+                text-indigo-600
+                transition-colors
+                duration-500
+                dark:text-cyan-400
               "
             />
 
@@ -146,6 +217,9 @@ function PricingCard({
                 text-sm
                 leading-7
                 text-slate-600
+                transition-colors
+                duration-500
+                dark:text-slate-300
               "
             >
               {feature}
@@ -155,9 +229,12 @@ function PricingCard({
       </ul>
 
       {/* CTA */}
+
       <Link
         to="/contact"
         className={`
+          relative
+          z-10
           mt-8
           inline-flex
           items-center
@@ -171,19 +248,33 @@ function PricingCard({
           duration-300
           focus:outline-none
           focus:ring-2
-          focus:ring-blue-500
+          focus:ring-indigo-500
           focus:ring-offset-2
+          dark:focus:ring-offset-slate-950
+
           ${
             highlighted
               ? `
-                bg-blue-600
+                bg-gradient-to-l
+                from-indigo-600
+                to-purple-600
                 text-white
-                hover:bg-blue-700
+                shadow-lg
+                shadow-indigo-950/10
+                hover:-translate-y-0.5
+                hover:from-indigo-500
+                hover:to-purple-500
+                hover:shadow-xl
               `
               : `
-                bg-blue-50
-                text-blue-700
-                hover:bg-blue-100
+                bg-indigo-50
+                text-indigo-700
+                hover:-translate-y-0.5
+                hover:bg-indigo-100
+
+                dark:bg-indigo-950/70
+                dark:text-indigo-300
+                dark:hover:bg-indigo-900/80
               `
           }
         `}

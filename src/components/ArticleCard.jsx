@@ -1,23 +1,17 @@
-function ServiceCard({
+import { ArrowLeft, Clock3 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+function ArticleCard({
   title,
+  category,
   description,
-  icon: Icon,
   image,
-  variant,
+  date,
+  readTime,
 }) {
-  const cardBackground =
-    variant === "blue"
-      ? "bg-indigo-50/80 dark:bg-indigo-950/50"
-      : "bg-white/80 dark:bg-slate-900/80";
-
-  const iconBackground =
-    variant === "blue"
-      ? "bg-white dark:bg-slate-800"
-      : "bg-indigo-50 dark:bg-indigo-950";
-
   return (
     <article
-      className={`
+      className="
         group
         flex
         h-full
@@ -25,21 +19,21 @@ function ServiceCard({
         overflow-hidden
         rounded-2xl
         border
-        border-slate-200/80
-        ${cardBackground}
+        border-slate-200
+        bg-white
         shadow-sm
-        backdrop-blur-sm
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-indigo-300
+        hover:border-blue-200
         hover:shadow-xl
         dark:border-white/10
-        dark:hover:border-indigo-400/40
-      `}
+        dark:bg-slate-800/60
+        dark:hover:border-indigo-400/30
+        dark:hover:shadow-black/40
+      "
     >
       {/* Image */}
-
       <div
         className="
           relative
@@ -47,7 +41,7 @@ function ServiceCard({
           w-full
           overflow-hidden
           bg-slate-200
-          dark:bg-slate-800
+          dark:bg-slate-700
         "
       >
         <img
@@ -66,8 +60,6 @@ function ServiceCard({
           "
         />
 
-        {/* Image overlay */}
-
         <div
           aria-hidden="true"
           className="
@@ -75,7 +67,7 @@ function ServiceCard({
             absolute
             inset-0
             bg-gradient-to-t
-            from-indigo-950/20
+            from-slate-950/20
             via-transparent
             to-transparent
             opacity-0
@@ -87,7 +79,6 @@ function ServiceCard({
       </div>
 
       {/* Content */}
-
       <div
         className="
           flex
@@ -99,46 +90,33 @@ function ServiceCard({
           text-right
         "
       >
-        {/* Service Icon */}
-
-        <div
-          className={`
-            mb-5
-            flex
-            h-12
-            w-12
-            shrink-0
-            items-center
-            justify-center
+        {/* Category */}
+        <span
+          className="
+            w-fit
             rounded-full
-            ${iconBackground}
-            text-indigo-600
-            transition-all
-            duration-300
-            group-hover:bg-indigo-100
-            group-hover:text-indigo-700
-            dark:text-indigo-300
-            dark:group-hover:bg-indigo-900
-            dark:group-hover:text-indigo-200
-          `}
+            bg-blue-50
+            px-3
+            py-1
+            text-xs
+            font-semibold
+            text-blue-600
+            dark:bg-blue-500/15
+            dark:text-blue-300
+          "
         >
-          <Icon
-            size={22}
-            strokeWidth={2}
-          />
-        </div>
+          {category}
+        </span>
 
         {/* Title */}
-
         <h3
           className="
+            mt-4
             text-lg
             font-bold
-            leading-7
+            leading-8
             tracking-tight
             text-slate-900
-            transition-colors
-            duration-300
             dark:text-white
             md:text-xl
           "
@@ -147,30 +125,61 @@ function ServiceCard({
         </h3>
 
         {/* Description */}
-
         <p
           className="
             mt-3
             min-h-[56px]
-            max-w-[32ch]
             text-sm
-            font-normal
             leading-7
             text-slate-500
-            transition-colors
-            duration-300
             dark:text-slate-400
-            md:text-[15px]
           "
         >
           {description}
         </p>
 
-        {/* More */}
+        {/* Meta */}
+        <div
+          className="
+            mt-5
+            flex
+            items-center
+            justify-between
+            gap-4
+            border-t
+            border-slate-100
+            pt-4
+            dark:border-white/10
+          "
+        >
+          <span className="text-xs text-slate-400 dark:text-slate-500">
+            {date}
+          </span>
 
-        <div className="mt-auto pt-5">
-          <button
-            type="button"
+          <span
+            className="
+              inline-flex
+              items-center
+              gap-1.5
+              text-xs
+              text-slate-400
+              dark:text-slate-500
+            "
+          >
+            <Clock3
+              size={15}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
+
+            {readTime}
+          </span>
+        </div>
+
+        {/* Read More */}
+        <div className="mt-5">
+          <Link
+            to="#"
             className="
               inline-flex
               items-center
@@ -178,31 +187,32 @@ function ServiceCard({
               text-sm
               font-semibold
               leading-6
-              text-indigo-600
+              text-blue-600
               transition-all
               duration-200
               hover:gap-3
-              hover:text-purple-600
-              dark:text-indigo-300
-              dark:hover:text-purple-300
+              hover:text-blue-700
+              focus:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-blue-500
+              focus-visible:ring-offset-2
+              dark:text-blue-300
+              dark:hover:text-blue-200
+              dark:focus-visible:ring-offset-slate-800
             "
           >
-            بیشتر بدانید
+            ادامه مطلب
 
-            <span
+            <ArrowLeft
+              size={18}
+              strokeWidth={2}
               aria-hidden="true"
-              className="
-                text-lg
-                leading-none
-              "
-            >
-              ←
-            </span>
-          </button>
+            />
+          </Link>
         </div>
       </div>
     </article>
   );
 }
 
-export default ServiceCard;
+export default ArticleCard;

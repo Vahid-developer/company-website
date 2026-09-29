@@ -1,29 +1,57 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Vazirmatn */
+
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url('./assets/font/Vazirmatn-Regular.woff2') format('woff2');
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url('./assets/font/Vazirmatn-Bold.woff2') format('woff2');
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-@theme {
-  --font-sans: 'Vazirmatn', sans-serif;
-}
-
-body {
-  font-family: var(--font-sans);
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: "Vazirmatn", sans-serif;
 }

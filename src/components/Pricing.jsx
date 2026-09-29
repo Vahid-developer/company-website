@@ -55,6 +55,12 @@ function Pricing() {
         pb-20
         pt-16
         shadow-[0_-16px_50px_rgba(15,23,42,0.10)]
+        transition-colors
+        duration-500
+
+        dark:bg-slate-950
+        dark:shadow-[0_-16px_50px_rgba(0,0,0,0.35)]
+
         sm:px-6
         sm:pb-24
         sm:pt-20
@@ -62,6 +68,7 @@ function Pricing() {
       "
     >
       {/* Background glow - top right */}
+
       <div
         aria-hidden="true"
         className="
@@ -72,14 +79,60 @@ function Pricing() {
           h-72
           w-72
           rounded-full
-          bg-indigo-200/50
+          bg-purple-300/30
           blur-3xl
+          transition-all
+          duration-500
+          dark:bg-purple-600/15
           sm:h-80
           sm:w-80
         "
       />
 
+      {/* Background glow - bottom left */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -bottom-36
+          -left-36
+          h-72
+          w-72
+          rounded-full
+          bg-cyan-300/25
+          blur-3xl
+          transition-all
+          duration-500
+          dark:bg-cyan-500/10
+          sm:h-80
+          sm:w-80
+        "
+      />
+
+      {/* Center glow */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-1/2
+          h-80
+          w-80
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          bg-indigo-300/10
+          blur-3xl
+          dark:bg-indigo-500/10
+        "
+      />
+
       {/* Hollow bubble - top right */}
+
       <div
         aria-hidden="true"
         className="
@@ -91,32 +144,18 @@ function Pricing() {
           w-32
           rounded-full
           border-2
-          border-blue-300
+          border-purple-200/70
+          transition-colors
+          duration-500
+          dark:border-purple-500/20
           sm:-right-16
           sm:h-36
           sm:w-36
         "
       />
 
-      {/* Background glow - bottom left */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -bottom-36
-          -left-36
-          h-72
-          w-72
-          rounded-full
-          bg-indigo-200/60
-          blur-3xl
-          sm:h-80
-          sm:w-80
-        "
-      />
-
       {/* Hollow bubble - bottom left */}
+
       <div
         aria-hidden="true"
         className="
@@ -128,7 +167,10 @@ function Pricing() {
           w-24
           rounded-full
           border-2
-          border-blue-300
+          border-cyan-200/70
+          transition-colors
+          duration-500
+          dark:border-cyan-500/20
           sm:bottom-20
           sm:-left-10
         "
@@ -144,6 +186,7 @@ function Pricing() {
         "
       >
         {/* Section heading */}
+
         <div
           className="
             mx-auto
@@ -163,23 +206,51 @@ function Pricing() {
               sm:mb-5
             "
           >
-            <span className="h-px w-8 bg-blue-300 sm:w-10" />
+            <span
+              className="
+                h-px
+                w-8
+                bg-gradient-to-r
+                from-transparent
+                to-indigo-300
+                dark:to-indigo-500
+                sm:w-10
+              "
+            />
 
             <span
               className="
                 rounded-full
-                bg-blue-50
+                border
+                border-indigo-200
+                bg-indigo-50/80
                 px-5
                 py-2
                 text-sm
                 font-semibold
-                text-blue-600
+                text-indigo-600
+                backdrop-blur-sm
+                transition-all
+                duration-500
+                dark:border-indigo-400/20
+                dark:bg-indigo-950/60
+                dark:text-indigo-300
               "
             >
               تعرفه‌ها
             </span>
 
-            <span className="h-px w-8 bg-blue-300 sm:w-10" />
+            <span
+              className="
+                h-px
+                w-8
+                bg-gradient-to-l
+                from-transparent
+                to-purple-300
+                dark:to-purple-500
+                sm:w-10
+              "
+            />
           </div>
 
           <h2
@@ -189,6 +260,9 @@ function Pricing() {
               leading-tight
               tracking-tight
               text-slate-900
+              transition-colors
+              duration-500
+              dark:text-white
               sm:text-4xl
             "
           >
@@ -203,6 +277,9 @@ function Pricing() {
               text-sm
               leading-7
               text-slate-500
+              transition-colors
+              duration-500
+              dark:text-slate-400
               sm:text-base
             "
           >
@@ -211,6 +288,7 @@ function Pricing() {
         </div>
 
         {/* Pricing cards */}
+
         <div
           className="
             grid

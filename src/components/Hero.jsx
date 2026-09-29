@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, ChevronDown } from "lucide-react";
+import {
+  ArrowLeft,
+  Sparkles,
+  ChevronDown,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Hero() {
   const handleScrollToServices = () => {
-    const servicesSection = document.getElementById("services");
+    const servicesSection =
+      document.getElementById("services");
 
     if (servicesSection) {
       servicesSection.scrollIntoView({
@@ -22,15 +27,29 @@ function Hero() {
         min-h-[calc(100svh+80px)]
         items-center
         overflow-hidden
-        bg-indigo-950
+        bg-gradient-to-br
+        from-indigo-50
+        via-white
+        to-purple-50
         px-6
         py-24
-        text-white
+        text-slate-900
+        transition-colors
+        duration-500
+        dark:from-slate-950
+        dark:via-indigo-950
+        dark:to-purple-950
+        dark:text-white
         md:px-8
         md:py-28
       "
     >
-      {/* نور پس‌زمینه سمت راست */}
+      {/* ========================= */}
+      {/* Background color layers */}
+      {/* ========================= */}
+
+      {/* Purple - top right */}
+
       <div
         aria-hidden="true"
         className="
@@ -38,15 +57,19 @@ function Hero() {
           absolute
           -right-32
           -top-32
-          h-96
-          w-96
+          h-[420px]
+          w-[420px]
           rounded-full
-          bg-purple-600/20
+          bg-purple-400/30
           blur-3xl
+          transition-all
+          duration-700
+          dark:bg-purple-600/30
         "
       />
 
-      {/* نور پس‌زمینه سمت چپ */}
+      {/* Cyan / Sky - bottom left */}
+
       <div
         aria-hidden="true"
         className="
@@ -54,15 +77,19 @@ function Hero() {
           absolute
           -bottom-40
           -left-32
-          h-96
-          w-96
+          h-[450px]
+          w-[450px]
           rounded-full
-          bg-indigo-600/20
+          bg-cyan-400/25
           blur-3xl
+          transition-all
+          duration-700
+          dark:bg-cyan-500/20
         "
       />
 
-      {/* نور مرکزی */}
+      {/* Pink / Fuchsia - center */}
+
       <div
         aria-hidden="true"
         className="
@@ -75,15 +102,42 @@ function Hero() {
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-indigo-500/10
+          bg-fuchsia-300/15
           blur-3xl
+          transition-all
+          duration-700
+          dark:bg-fuchsia-500/10
         "
       />
 
-      {/* محتوای اصلی Hero */}
+      {/* Indigo - upper left */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -left-48
+          top-10
+          h-[320px]
+          w-[320px]
+          rounded-full
+          bg-indigo-400/20
+          blur-3xl
+          transition-all
+          duration-700
+          dark:bg-indigo-500/20
+        "
+      />
+
+      {/* ========================= */}
+      {/* Main content */}
+      {/* ========================= */}
+
       <div
         className="
           relative
+          z-10
           mx-auto
           flex
           w-full
@@ -98,6 +152,7 @@ function Hero() {
         "
       >
         {/* Badge */}
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,13 +166,19 @@ function Hero() {
             gap-2
             rounded-full
             border
-            border-white/10
-            bg-white/10
+            border-indigo-200/80
+            bg-white/60
             px-4
             py-2
             text-sm
-            text-indigo-200
+            text-indigo-700
+            shadow-sm
             backdrop-blur-md
+            transition-all
+            duration-500
+            dark:border-white/10
+            dark:bg-white/10
+            dark:text-indigo-200
           "
         >
           <Sparkles
@@ -130,7 +191,8 @@ function Hero() {
           </span>
         </motion.div>
 
-        {/* عنوان اصلی */}
+        {/* Main title */}
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,17 +215,22 @@ function Hero() {
           <span
             className="
               bg-gradient-to-l
-              from-indigo-300
-              to-purple-300
+              from-indigo-600
+              via-purple-600
+              to-fuchsia-600
               bg-clip-text
               text-transparent
+              dark:from-cyan-300
+              dark:via-indigo-300
+              dark:to-purple-300
             "
           >
             رشد کسب‌وکار شما
           </span>
         </motion.h1>
 
-        {/* توضیحات */}
+        {/* Description */}
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,7 +243,10 @@ function Hero() {
             max-w-2xl
             text-base
             leading-8
-            text-indigo-100/80
+            text-slate-600
+            transition-colors
+            duration-500
+            dark:text-indigo-100/80
             md:text-lg
           "
         >
@@ -184,7 +254,8 @@ function Hero() {
           به سطح بعدی برسانید.
         </motion.p>
 
-        {/* دکمه‌ها */}
+        {/* Buttons */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -201,7 +272,8 @@ function Hero() {
             sm:flex-row
           "
         >
-          {/* شروع همکاری */}
+          {/* Start cooperation */}
+
           <Link
             to="/contact"
             className="
@@ -210,7 +282,9 @@ function Hero() {
               items-center
               gap-2
               rounded-full
-              bg-indigo-500
+              bg-gradient-to-l
+              from-indigo-600
+              to-purple-600
               px-6
               py-3
               font-bold
@@ -220,8 +294,13 @@ function Hero() {
               transition-all
               duration-300
               hover:scale-105
-              hover:bg-indigo-400
+              hover:from-indigo-500
+              hover:to-purple-500
               active:scale-95
+              dark:from-indigo-500
+              dark:to-purple-500
+              dark:hover:from-indigo-400
+              dark:hover:to-purple-400
             "
           >
             <span>
@@ -239,7 +318,8 @@ function Hero() {
             />
           </Link>
 
-          {/* مشاهده خدمات */}
+          {/* View services */}
+
           <button
             type="button"
             onClick={handleScrollToServices}
@@ -250,18 +330,23 @@ function Hero() {
               gap-2
               rounded-full
               border
-              border-white/20
-              bg-white/5
+              border-indigo-200
+              bg-white/50
               px-6
               py-3
               font-medium
-              text-white
+              text-indigo-900
+              shadow-sm
               backdrop-blur-sm
               transition-all
               duration-300
               hover:scale-105
-              hover:bg-white/10
+              hover:bg-white/80
               active:scale-95
+              dark:border-white/20
+              dark:bg-white/5
+              dark:text-white
+              dark:hover:bg-white/10
             "
           >
             <span>
@@ -270,7 +355,8 @@ function Hero() {
           </button>
         </motion.div>
 
-        {/* آمار اعتمادسازی */}
+        {/* Trust statistics */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -284,12 +370,22 @@ function Hero() {
             flex
             items-center
             gap-6
-            text-indigo-200
+            text-indigo-600
+            transition-colors
+            duration-500
+            dark:text-indigo-200
             md:gap-8
           "
         >
           <div className="text-center">
-            <p className="text-2xl font-extrabold text-white">
+            <p
+              className="
+                text-2xl
+                font-extrabold
+                text-slate-900
+                dark:text-white
+              "
+            >
               +۵۰۰
             </p>
 
@@ -298,10 +394,24 @@ function Hero() {
             </p>
           </div>
 
-          <div className="h-8 w-px bg-white/20" />
+          <div
+            className="
+              h-8
+              w-px
+              bg-indigo-200
+              dark:bg-white/20
+            "
+          />
 
           <div className="text-center">
-            <p className="text-2xl font-extrabold text-white">
+            <p
+              className="
+                text-2xl
+                font-extrabold
+                text-slate-900
+                dark:text-white
+              "
+            >
               ۱۰+
             </p>
 
@@ -310,10 +420,24 @@ function Hero() {
             </p>
           </div>
 
-          <div className="h-8 w-px bg-white/20" />
+          <div
+            className="
+              h-8
+              w-px
+              bg-indigo-200
+              dark:bg-white/20
+            "
+          />
 
           <div className="text-center">
-            <p className="text-2xl font-extrabold text-white">
+            <p
+              className="
+                text-2xl
+                font-extrabold
+                text-slate-900
+                dark:text-white
+              "
+            >
               ۲۴/۷
             </p>
 
@@ -324,7 +448,8 @@ function Hero() {
         </motion.div>
       </div>
 
-      {/* شاخص اسکرول */}
+      {/* Scroll indicator */}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -348,7 +473,8 @@ function Hero() {
           bottom-7
           left-1/2
           -translate-x-1/2
-          text-indigo-300
+          text-indigo-500
+          dark:text-cyan-300
         "
       >
         <ChevronDown

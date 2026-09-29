@@ -23,14 +23,22 @@ function Drawer({ isOpen, onClose, title, children }) {
 
   return createPortal(
     <>
-      {/* Scrim + Blur کل سایت */}
+      {/* Scrim + Blur */}
       <div
         onClick={onClose}
         className={`
-          fixed inset-0 z-[9998]
-          bg-black/35
+          fixed
+          inset-0
+          z-[9998]
+
+          bg-slate-950/20
           backdrop-blur-md
-          transition-opacity duration-300
+
+          transition-opacity
+          duration-300
+
+          dark:bg-black/45
+
           ${
             isOpen
               ? "pointer-events-auto opacity-100"
@@ -43,67 +51,144 @@ function Drawer({ isOpen, onClose, title, children }) {
       <aside
         aria-label={title}
         className={`
-          fixed top-0 right-0 z-[9999]
+          fixed
+          top-0
+          right-0
+          z-[9999]
+
           h-dvh
           w-[280px]
           max-w-[85vw]
 
-          bg-slate-950
-          text-white
+          overflow-hidden
+
+          border-l
+          border-slate-200/70
+
+          bg-white/95
+          text-slate-900
 
           shadow-2xl
+          shadow-slate-900/10
+
+          backdrop-blur-xl
 
           transition-transform
           duration-300
           ease-out
 
+          dark:border-white/10
+          dark:bg-indigo-950/95
+          dark:text-white
+          dark:shadow-black/30
+
           ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
+        {/* Subtle purple glow */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -right-24
+            -top-24
+            h-56
+            w-56
+            rounded-full
+            bg-indigo-200/30
+            blur-3xl
+
+            dark:bg-purple-600/10
+          "
+        />
+
         {/* Drawer Header */}
         <div
           className="
-            flex h-16
-            items-center justify-between
-            border-b border-white/10
+            relative
+            flex
+            h-16
+            items-center
+            justify-between
+
+            border-b
+            border-slate-200/80
+
             px-4
+
+            dark:border-white/10
           "
         >
-          <h2 className="text-lg font-bold text-white">{title}</h2>
+          <h2
+            className="
+              text-lg
+              font-bold
+              text-slate-900
+
+              dark:text-white
+            "
+          >
+            {title}
+          </h2>
 
           <button
             type="button"
             onClick={onClose}
             aria-label="بستن منو"
             className="
-              flex h-10 w-10
-              items-center justify-center
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
               rounded-full
 
-              text-white/70
+              text-slate-500
 
-              transition-colors
+              transition-all
               duration-200
 
-              hover:bg-white/10
-              hover:text-white
+              hover:bg-indigo-50
+              hover:text-indigo-600
 
               focus:outline-none
               focus:ring-2
               focus:ring-indigo-400
+              focus:ring-offset-2
+              focus:ring-offset-white
+
+              dark:text-white/60
+              dark:hover:bg-white/10
+              dark:hover:text-white
+              dark:focus:ring-offset-indigo-950
             "
           >
-            <X size={22} strokeWidth={2} />
+            <X
+              size={22}
+              strokeWidth={2}
+            />
           </button>
         </div>
 
         {/* Navigation */}
         <div
           className="
-         h-[calc(100dvh-4rem)]
-         px-4
-         py-4
-  "
+            relative
+
+            h-[calc(100dvh-4rem)]
+
+            overflow-y-auto
+
+            px-4
+            py-5
+
+            scrollbar-thin
+            scrollbar-thumb-slate-200
+            scrollbar-track-transparent
+
+            dark:scrollbar-thumb-white/10
+          "
         >
           {children}
         </div>
