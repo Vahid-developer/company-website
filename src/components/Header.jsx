@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-30 backdrop-blur-md text-white transition-shadow duration-300 ${
+      className={`sticky top-0 z-40 backdrop-blur-md text-white transition-shadow duration-300  ${
         isScrolled ? "bg-indigo-950/90 shadow-xl" : "bg-indigo-950/80 shadow-lg"
       }`}
     >

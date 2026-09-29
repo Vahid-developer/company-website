@@ -56,13 +56,13 @@ function CompanyOverview() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Content - RIGHT (first child in RTL) */}
           <div className="max-w-2xl text-right">
-            <p className="text-sm leading-7 text-slate-500 sm:text-base">
+            <p className="text-justify text-sm leading-7 text-slate-500 sm:text-base">
               ما در کنار کسب‌وکارها قرار می‌گیریم تا با استفاده از طراحی مدرن،
               فناوری‌های روز و تجربه تخصصی، مسیر حضور آن‌ها در فضای دیجیتال را
               ساده‌تر و حرفه‌ای‌تر کنیم.
             </p>
 
-            <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
+            <p className="mt-4 text-justify text-sm leading-7 text-slate-500 sm:text-base">
               تمرکز ما فقط روی ساخت یک محصول نیست؛ هدف ما ایجاد راهکارهایی
               کاربردی، قابل توسعه و متناسب با نیاز واقعی هر کسب‌وکار است.
             </p>
