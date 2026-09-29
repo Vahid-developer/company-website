@@ -2,32 +2,38 @@ import { House, Phone, Newspaper, Search } from "lucide-react";
 
 import ServiceCard from "./ServiceCard";
 
-import webDesignImage from "../assets/web-design.jpg";
+import visitCardImage from "../assets/image/visit-card.jpg";
+
+import applicationImage from "../assets/image/application-visit-card.jpg"
+
+import ContentImage from "../assets/image/Content-creation.jpg"
+
+import seoImage from "../assets/image/seo.jpg"
 
 const services = [
   {
     title: "طراحی سایت",
     description: "طراحی وب‌سایت‌های مدرن و حرفه‌ای برای کسب‌وکار شما",
     icon: House,
-    image: webDesignImage,
+    image: visitCardImage,
   },
   {
     title: "طراحی اپلیکیشن",
     description: "ساخت اپلیکیشن‌های کاربردی و مدرن برای کاربران شما",
     icon: Phone,
-    image: webDesignImage,
+    image: applicationImage,
   },
   {
     title: "تولید محتوا",
     description: "تولید محتوای حرفه‌ای برای رشد و توسعه برند شما",
     icon: Newspaper,
-    image: webDesignImage,
+    image: ContentImage,
   },
   {
     title: "سئو و بهینه‌سازی",
     description: "بهینه‌سازی سایت برای دیده‌شدن بهتر در موتورهای جستجو",
     icon: Search,
-    image: webDesignImage,
+    image: seoImage,
   },
 ];
 
@@ -44,13 +50,14 @@ function Services() {
         rounded-t-[48px]
         bg-slate-50
         px-5
-        pb-28
+        pb-40
         pt-20
         shadow-[0_-16px_50px_rgba(15,23,42,0.10)]
         sm:px-6
         md:-mt-24
         md:rounded-t-[64px]
         md:px-8
+        md:pb-48
         md:pt-24
         lg:px-10
       "
