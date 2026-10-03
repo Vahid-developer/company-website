@@ -6,6 +6,8 @@ import {
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import SectionHeading from "./SectionHeading";
+
 import webDesignImage from "../assets/image/web-card.jpg";
 
 const features = [
@@ -104,107 +106,17 @@ function CompanyOverview() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
+
         {/* ========================= */}
         {/* Section heading */}
         {/* ========================= */}
 
-        <div
-          className="
-            mx-auto
-            mb-10
-            max-w-3xl
-            text-center
-            md:mb-12
-          "
-        >
-          <div
-            className="
-              mb-5
-              flex
-              items-center
-              justify-center
-              gap-4
-            "
-          >
-            <span
-              className="
-                h-px
-                w-10
-                bg-gradient-to-r
-                from-transparent
-                to-indigo-300
-                dark:to-indigo-500
-              "
-            />
-
-            <span
-              className="
-                rounded-full
-                border
-                border-indigo-200
-                bg-indigo-50/80
-                px-5
-                py-2
-                text-sm
-                font-semibold
-                text-indigo-600
-                backdrop-blur-sm
-                transition-all
-                duration-500
-                dark:border-indigo-400/20
-                dark:bg-indigo-950/60
-                dark:text-indigo-300
-              "
-            >
-              درباره شرکت ما
-            </span>
-
-            <span
-              className="
-                h-px
-                w-10
-                bg-gradient-to-l
-                from-transparent
-                to-purple-300
-                dark:to-purple-500
-              "
-            />
-          </div>
-
-          <h2
-            className="
-              text-3xl
-              font-extrabold
-              leading-tight
-              tracking-tight
-              text-slate-900
-              transition-colors
-              duration-500
-              dark:text-white
-              sm:text-4xl
-            "
-          >
-            همراه شما برای ساختن آینده‌ای بهتر
-          </h2>
-
-          <p
-            className="
-              mx-auto
-              mt-4
-              max-w-2xl
-              text-sm
-              leading-7
-              text-slate-500
-              transition-colors
-              duration-500
-              dark:text-slate-400
-              sm:text-base
-            "
-          >
-            ترکیبی از تجربه، خلاقیت و فناوری برای ساخت راهکارهایی که به رشد
-            واقعی کسب‌وکار شما کمک می‌کنند.
-          </p>
-        </div>
+        <SectionHeading
+          badge="درباره شرکت ما"
+          title="همراه شما برای ساختن آینده‌ای بهتر"
+          description="ترکیبی از تجربه، خلاقیت و فناوری برای ساخت راهکارهایی که به رشد واقعی کسب‌وکار شما کمک می‌کنند."
+          className="mb-10 md:mb-12"
+        />
 
         {/* ========================= */}
         {/* Main content */}
@@ -349,6 +261,7 @@ function CompanyOverview() {
 
           <div className="w-full">
             <div className="relative mx-auto w-full max-w-xl">
+
               {/* Image frame */}
 
               <div

@@ -7,7 +7,7 @@ function getInitialTheme() {
   const savedTheme = localStorage.getItem(STORAGE_KEY);
 
   if (savedTheme === "dark" || savedTheme === "light") {
-    return savedTheme;
+    return savedTheme;مم
   }
 
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -17,7 +17,6 @@ function useTheme() {
   const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    // دلیل استفاده؟
     const root = document.documentElement;
 
     root.classList.toggle("dark", theme === "dark");

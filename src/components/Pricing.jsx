@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+
 import PricingCard from "./PricingCard";
+import SectionHeading from "./SectionHeading";
 
 const plans = [
   {
@@ -187,105 +189,12 @@ function Pricing() {
       >
         {/* Section heading */}
 
-        <div
-          className="
-            mx-auto
-            mb-10
-            max-w-3xl
-            text-center
-            sm:mb-14
-          "
-        >
-          <div
-            className="
-              mb-4
-              flex
-              items-center
-              justify-center
-              gap-4
-              sm:mb-5
-            "
-          >
-            <span
-              className="
-                h-px
-                w-8
-                bg-gradient-to-r
-                from-transparent
-                to-indigo-300
-                dark:to-indigo-500
-                sm:w-10
-              "
-            />
-
-            <span
-              className="
-                rounded-full
-                border
-                border-indigo-200
-                bg-indigo-50/80
-                px-5
-                py-2
-                text-sm
-                font-semibold
-                text-indigo-600
-                backdrop-blur-sm
-                transition-all
-                duration-500
-                dark:border-indigo-400/20
-                dark:bg-indigo-950/60
-                dark:text-indigo-300
-              "
-            >
-              تعرفه‌ها
-            </span>
-
-            <span
-              className="
-                h-px
-                w-8
-                bg-gradient-to-l
-                from-transparent
-                to-purple-300
-                dark:to-purple-500
-                sm:w-10
-              "
-            />
-          </div>
-
-          <h2
-            className="
-              text-3xl
-              font-extrabold
-              leading-tight
-              tracking-tight
-              text-slate-900
-              transition-colors
-              duration-500
-              dark:text-white
-              sm:text-4xl
-            "
-          >
-            پلنی متناسب با نیاز شما
-          </h2>
-
-          <p
-            className="
-              mx-auto
-              mt-4
-              max-w-2xl
-              text-sm
-              leading-7
-              text-slate-500
-              transition-colors
-              duration-500
-              dark:text-slate-400
-              sm:text-base
-            "
-          >
-            بسته به اندازه و نیاز کسب‌وکارتان، مناسب‌ترین پلن را انتخاب کنید.
-          </p>
-        </div>
+        <SectionHeading
+          badge="تعرفه‌ها"
+          title="پلنی متناسب با نیاز شما"
+          description="بسته به اندازه و نیاز کسب‌وکارتان، مناسب‌ترین پلن را انتخاب کنید."
+          className="mb-10 sm:mb-14"
+        />
 
         {/* Pricing cards */}
 
