@@ -24,9 +24,9 @@ function CompanyOverview() {
       className="
         relative
         z-20
-        -mt-8
+        -mt-16
         overflow-hidden
-        rounded-t-3xl
+        rounded-t-[48px]
         bg-white
         px-5
         pb-24
@@ -39,15 +39,12 @@ function CompanyOverview() {
         dark:shadow-[0_-16px_50px_rgba(0,0,0,0.35)]
 
         sm:px-6
+        md:-mt-24
+        md:rounded-t-[64px]
         lg:px-10
       "
     >
-      {/* ========================= */}
-      {/* Decorative layers */}
-      {/* ========================= */}
-
       {/* Purple bubble */}
-
       <div
         aria-hidden="true"
         className="
@@ -67,7 +64,6 @@ function CompanyOverview() {
       />
 
       {/* Cyan bubble */}
-
       <div
         aria-hidden="true"
         className="
@@ -87,7 +83,6 @@ function CompanyOverview() {
       />
 
       {/* Soft center glow */}
-
       <div
         aria-hidden="true"
         className="
@@ -106,21 +101,12 @@ function CompanyOverview() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
-
-        {/* ========================= */}
-        {/* Section heading */}
-        {/* ========================= */}
-
         <SectionHeading
           badge="درباره شرکت ما"
           title="همراه شما برای ساختن آینده‌ای بهتر"
           description="ترکیبی از تجربه، خلاقیت و فناوری برای ساخت راهکارهایی که به رشد واقعی کسب‌وکار شما کمک می‌کنند."
           className="mb-10 md:mb-12"
         />
-
-        {/* ========================= */}
-        {/* Main content */}
-        {/* ========================= */}
 
         <div
           className="
@@ -131,8 +117,6 @@ function CompanyOverview() {
             lg:gap-12
           "
         >
-          {/* Content */}
-
           <div className="max-w-2xl text-right">
             <p
               className="
@@ -168,17 +152,11 @@ function CompanyOverview() {
               کاربردی، قابل توسعه و متناسب با نیاز واقعی هر کسب‌وکار است.
             </p>
 
-            {/* Features */}
-
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {features.map((feature) => (
                 <li
                   key={feature}
-                  className="
-                    flex
-                    items-center
-                    gap-3
-                  "
+                  className="flex items-center gap-3"
                 >
                   <CheckCircle2
                     size={20}
@@ -207,8 +185,6 @@ function CompanyOverview() {
                 </li>
               ))}
             </ul>
-
-            {/* CTA */}
 
             <div className="mt-8">
               <Link
@@ -257,13 +233,8 @@ function CompanyOverview() {
             </div>
           </div>
 
-          {/* Image */}
-
           <div className="w-full">
             <div className="relative mx-auto w-full max-w-xl">
-
-              {/* Image frame */}
-
               <div
                 className="
                   relative
@@ -285,12 +256,7 @@ function CompanyOverview() {
                     src={webDesignImage}
                     alt="تیم شرکت در حال کار روی راهکارهای دیجیتال"
                     loading="lazy"
-                    className="
-                      h-full
-                      w-full
-                      object-cover
-                      object-center
-                    "
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
 
@@ -308,22 +274,12 @@ function CompanyOverview() {
                 />
               </div>
 
-              {/* Floating stat card */}
-
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-                className="
-                  absolute
-                  -bottom-5
-                  right-4
-                  md:-right-5
-                "
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute -bottom-5 right-4 md:-right-5"
               >
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
@@ -367,11 +323,7 @@ function CompanyOverview() {
                       dark:text-cyan-400
                     "
                   >
-                    <Briefcase
-                      size={22}
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    />
+                    <Briefcase size={22} strokeWidth={2} aria-hidden="true" />
                   </span>
 
                   <div className="text-right">

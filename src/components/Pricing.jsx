@@ -49,9 +49,9 @@ function Pricing() {
       className="
         relative
         z-30
-        -mt-8
+        -mt-
         overflow-hidden
-        rounded-t-3xl
+        rounded-t-[48px]
         bg-slate-50
         px-5
         pb-20
@@ -66,11 +66,11 @@ function Pricing() {
         sm:px-6
         sm:pb-24
         sm:pt-20
+        md:-mt-
+        md:rounded-t-[64px]
         lg:px-10
       "
     >
-      {/* Background glow - top right */}
-
       <div
         aria-hidden="true"
         className="
@@ -90,8 +90,6 @@ function Pricing() {
           sm:w-80
         "
       />
-
-      {/* Background glow - bottom left */}
 
       <div
         aria-hidden="true"
@@ -113,8 +111,6 @@ function Pricing() {
         "
       />
 
-      {/* Center glow */}
-
       <div
         aria-hidden="true"
         className="
@@ -132,8 +128,6 @@ function Pricing() {
           dark:bg-indigo-500/10
         "
       />
-
-      {/* Hollow bubble - top right */}
 
       <div
         aria-hidden="true"
@@ -156,8 +150,6 @@ function Pricing() {
         "
       />
 
-      {/* Hollow bubble - bottom left */}
-
       <div
         aria-hidden="true"
         className="
@@ -178,25 +170,13 @@ function Pricing() {
         "
       />
 
-      <div
-        className="
-          relative
-          z-10
-          mx-auto
-          w-full
-          max-w-7xl
-        "
-      >
-        {/* Section heading */}
-
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
         <SectionHeading
           badge="تعرفه‌ها"
           title="پلنی متناسب با نیاز شما"
           description="بسته به اندازه و نیاز کسب‌وکارتان، مناسب‌ترین پلن را انتخاب کنید."
           className="mb-10 sm:mb-14"
         />
-
-        {/* Pricing cards */}
 
         <div
           className="
@@ -225,10 +205,7 @@ function Pricing() {
                   y: 0,
                   scale: 1,
                 }}
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: isMiddle ? 0.7 : 0.6,
                   delay: isMiddle ? 0.25 : index * 0.12,

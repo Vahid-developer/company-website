@@ -51,7 +51,7 @@ function Services() {
       dir="rtl"
       className="
         relative
-        z-20
+        z-10
         -mt-16
         overflow-hidden
         rounded-t-[48px]

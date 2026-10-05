@@ -45,7 +45,7 @@ function Articles() {
       dir="rtl"
       className="
         relative
-        z-30
+        z-45
         -mt-16
         -mb-16
         overflow-hidden
@@ -62,7 +62,6 @@ function Articles() {
         dark:shadow-[0_-16px_50px_rgba(0,0,0,0.35),0_16px_50px_rgba(0,0,0,0.35)]
 
         sm:px-6
-        md:-mt-24
         md:-mb-24
         md:rounded-[64px]
         md:px-8
@@ -71,8 +70,6 @@ function Articles() {
         lg:px-10
       "
     >
-      {/* Background glow - top left */}
-
       <div
         aria-hidden="true"
         className="
@@ -93,8 +90,6 @@ function Articles() {
         "
       />
 
-      {/* Background glow - bottom right */}
-
       <div
         aria-hidden="true"
         className="
@@ -113,8 +108,6 @@ function Articles() {
         "
       />
 
-      {/* Center glow */}
-
       <div
         aria-hidden="true"
         className="
@@ -132,8 +125,6 @@ function Articles() {
           dark:bg-indigo-600/10
         "
       />
-
-      {/* Decorative bubble - top left */}
 
       <div
         aria-hidden="true"
@@ -154,8 +145,6 @@ function Articles() {
           sm:w-28
         "
       />
-
-      {/* Decorative bubble - bottom right */}
 
       <div
         aria-hidden="true"
@@ -178,17 +167,12 @@ function Articles() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
-
-        {/* Section heading */}
-
         <SectionHeading
           badge="مقالات و مطالب"
           title="آخرین مقالات ما"
           description="مطالب کاربردی و آموزشی برای رشد کسب‌وکار و حضور بهتر شما در فضای دیجیتال"
           className="mb-12"
         />
-
-        {/* Articles */}
 
         <div
           className="
@@ -211,8 +195,6 @@ function Articles() {
             />
           ))}
         </div>
-
-        {/* View all */}
 
         <div className="mt-12 flex justify-center">
           <Link

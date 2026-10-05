@@ -33,7 +33,7 @@ function Testimonials() {
       className="
         relative
         z-30
-        -mt-8
+        -mt-
         overflow-hidden
         rounded-t-[48px]
         bg-white
@@ -50,7 +50,7 @@ function Testimonials() {
         sm:px-6
         sm:pb-28
         sm:pt-24
-        md:-mt-12
+        md:-mt-
         md:rounded-t-[64px]
         md:px-8
         lg:px-10
