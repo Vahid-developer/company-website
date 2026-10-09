@@ -32,13 +32,13 @@ function Testimonials() {
       dir="rtl"
       className="
         relative
-        z-30
-        -mt-
+        z-40
+        -mt-16
         overflow-hidden
         rounded-t-[48px]
         bg-white
         px-5
-        pb-24
+        pb-28
         pt-20
         shadow-[0_-16px_50px_rgba(15,23,42,0.10)]
         transition-colors
@@ -48,11 +48,13 @@ function Testimonials() {
         dark:shadow-[0_-16px_50px_rgba(0,0,0,0.35)]
 
         sm:px-6
-        sm:pb-28
+        sm:pb-32
         sm:pt-24
-        md:-mt-
+
+        md:-mt-16
         md:rounded-t-[64px]
         md:px-8
+
         lg:px-10
       "
     >

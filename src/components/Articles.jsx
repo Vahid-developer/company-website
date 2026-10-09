@@ -17,6 +17,7 @@ const articles = [
     image: webArticleImage,
     date: "۱۴۰۵/۰۷/۰۵",
     readTime: "۵ دقیقه مطالعه",
+    slug: "professional-business-website",
   },
   {
     title: "تأثیر تولید محتوای حرفه‌ای بر رشد برند",
@@ -26,6 +27,7 @@ const articles = [
     image: contentImage,
     date: "۱۴۰۵/۰۷/۰۲",
     readTime: "۴ دقیقه مطالعه",
+    slug: "professional-content-growth",
   },
   {
     title: "چرا سئو برای موفقیت یک وب‌سایت اهمیت دارد؟",
@@ -35,6 +37,7 @@ const articles = [
     image: seoImage,
     date: "۱۴۰۵/۰۶/۲۸",
     readTime: "۶ دقیقه مطالعه",
+    slug: "seo-importance",
   },
 ];
 
@@ -192,6 +195,7 @@ function Articles() {
               image={article.image}
               date={article.date}
               readTime={article.readTime}
+              slug={article.slug}
             />
           ))}
         </div>

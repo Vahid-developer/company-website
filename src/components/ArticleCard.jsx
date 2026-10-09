@@ -8,6 +8,7 @@ function ArticleCard({
   image,
   date,
   readTime,
+  slug,
 }) {
   return (
     <article
@@ -179,7 +180,7 @@ function ArticleCard({
         {/* Read More */}
         <div className="mt-5">
           <Link
-            to="#"
+            to={`/articles/${slug}`}
             className="
               inline-flex
               items-center
