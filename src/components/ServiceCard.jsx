@@ -1,10 +1,5 @@
-function ServiceCard({
-  title,
-  description,
-  icon: Icon,
-  image,
-  variant,
-}) {
+
+function ServiceCard({ title, description, icon: Icon, image, variant }) {
   const cardBackground =
     variant === "blue"
       ? "bg-indigo-50/80 dark:bg-indigo-950/50"
@@ -38,18 +33,8 @@ function ServiceCard({
         dark:hover:border-indigo-400/40
       `}
     >
-      {/* Image */}
-
-      <div
-        className="
-          relative
-          aspect-[16/10]
-          w-full
-          overflow-hidden
-          bg-slate-200
-          dark:bg-slate-800
-        "
-      >
+      {/* Service image */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-200 dark:bg-slate-800">
         <img
           src={image}
           alt={title}
@@ -65,8 +50,6 @@ function ServiceCard({
             group-hover:scale-105
           "
         />
-
-        {/* Image overlay */}
 
         <div
           aria-hidden="true"
@@ -86,21 +69,9 @@ function ServiceCard({
         />
       </div>
 
-      {/* Content */}
-
-      <div
-        className="
-          flex
-          flex-1
-          flex-col
-          px-6
-          pb-6
-          pt-6
-          text-right
-        "
-      >
-        {/* Service Icon */}
-
+      {/* Service content */}
+      <div className="flex flex-1 flex-col px-6 pb-6 pt-6 text-right">
+        {/* Service icon */}
         <div
           className={`
             mb-5
@@ -122,14 +93,10 @@ function ServiceCard({
             dark:group-hover:text-indigo-200
           `}
         >
-          <Icon
-            size={22}
-            strokeWidth={2}
-          />
+          <Icon size={22} strokeWidth={2} />
         </div>
 
-        {/* Title */}
-
+        {/* Service title */}
         <h3
           className="
             text-lg
@@ -146,8 +113,7 @@ function ServiceCard({
           {title}
         </h3>
 
-        {/* Description */}
-
+        {/* Service description */}
         <p
           className="
             mt-3
@@ -166,39 +132,26 @@ function ServiceCard({
           {description}
         </p>
 
-        {/* More */}
-
-        <div className="mt-auto pt-5">
-          <button
-            type="button"
+        {/* Decorative accent */}
+        <div className="mt-auto flex justify-start pt-6">
+          <span
+            aria-hidden="true"
             className="
-              inline-flex
-              items-center
-              gap-2
-              text-sm
-              font-semibold
-              leading-6
-              text-indigo-600
+              h-1
+              w-10
+              rounded-full
+              bg-gradient-to-l
+              from-indigo-500
+              to-purple-400
+              opacity-70
               transition-all
-              duration-200
-              hover:gap-3
-              hover:text-purple-600
-              dark:text-indigo-300
-              dark:hover:text-purple-300
+              duration-300
+              group-hover:w-16
+              group-hover:opacity-100
+              dark:from-indigo-400
+              dark:to-cyan-400
             "
-          >
-            بیشتر بدانید
-
-            <span
-              aria-hidden="true"
-              className="
-                text-lg
-                leading-none
-              "
-            >
-              ←
-            </span>
-          </button>
+          />
         </div>
       </div>
     </article>
